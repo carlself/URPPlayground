@@ -5,7 +5,7 @@ using UnityEngine;
 [ExecuteInEditMode]
 public class ArrayTest : MonoBehaviour
 {
-    public Material material;
+    Material material;
 
     float[] points = new float[] {
              1, 0, 0, 0.1f,
@@ -16,6 +16,11 @@ public class ArrayTest : MonoBehaviour
         0, 0, -1, 0.8f,
     };
     // Start is called before the first frame update
+
+    void Start()
+    {
+        material = GetComponent<MeshRenderer>().sharedMaterial;
+    }
 
     // Update is called once per frame
     void Update()

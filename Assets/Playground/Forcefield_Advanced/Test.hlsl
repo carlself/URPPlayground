@@ -1,5 +1,5 @@
 ﻿
-uniform float _Points[6*4];
+ float _Points[6*4];
 
 void Test_float(float3 position, out float3 direction, out float strength) {
     float3 directionOutput = 0;
