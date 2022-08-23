@@ -13,7 +13,7 @@
 		- 对`Voronoi`节点的做一系列处理后和扭曲的屏幕像素相加可以实现在水平的的焦散效果，然后再映射到水面下的物体，也就是用屏幕像素所在的世界空间位置的(X,Z)作为`Voronoi`节点的uv输入
 		- 根据SceneDepth重建世界空间位置
 		  id:: 62a57b95-14c1-462e-a988-bcb273aec5c8
-			- ![image.png](../assets/image_1653653535214_0.png)
+			- ![image.png](./images/image_1653653535214_0.png)
 			- 我们可以获取片元和屏幕像素的深度值以及片元相对于相机的位置，根据相似三角形原理可以计算屏幕像素相对于摄像机的位置，然后再去摄像机的世界空间位置就可以得到屏幕像素的世界空间位置
 - [Jellyfish breakdown](https://www.cyanilux.com/tutorials/jellyfish-shader-breakdown/)
 	- 在模型空间下，对顶点的xz值做缩放，缩放值由y轴做sin运算得出，这样可以得到物体y轴方向的波动效果
@@ -29,7 +29,7 @@
 		- 深度缓冲区读出的深度值减去片元深度值，然后clamp到[0,1],然后1减去得到的值
 - [Forcefield Advanced](https://www.cyanilux.com/tutorials/forcefield-shader-breakdown/)
 	- https://twitter.com/i/status/1162321274007367680
-	- ![image.png](../assets/image_1655825737121_0.png)
+	- ![image.png](./images/image_1655825737121_0.png)
 	- 半透明，但是Alpha值为1
 	- 扭曲效果是通过`Scene Color`实现，也就是通过forcefield看不到半透明物体
 	- fresnel效果让物体边缘高亮
@@ -56,10 +56,10 @@
 - [Dissolve Shader breakdown](https://www.cyanilux.com/tutorials/dissolve-shader-breakdown/)
 	- 物体的全局溶解效果
 		- 对噪声图做step处理，使得高于某个溶解层度值(_Amount)的噪声值变成1，低于的变成0，这个值作为透明度，然后做阈值为0.5的alpha clipping
-		- ![image.png](../assets/image_1658155850672_0.png)
+		- ![image.png](./images/image_1658155850672_0.png)
 	- 溶解边界的颜色
 		- 对上面的噪声图用(_Amount+微小值)在做一次step处理，然后让两次的step结果相减就可以得到溶解区域的边缘，用这个值对物体的颜色和边缘色插值
-		- ![image.png](../assets/image_1658155862570_0.png)
+		- ![image.png](./images/image_1658155862570_0.png)
 	- 溶解进度从上往下
 		- 模型空间的y轴取反后的值范围从上往下增加，以标准立方体为例，范围为[-0.5, 0.5],这个值和上面的噪声值(0~0.5)相加，也就是对一个线性值进行抖动，
 	- uv接缝处过度不连续
